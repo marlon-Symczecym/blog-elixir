@@ -6,7 +6,7 @@ opt_release:
 addons:
   postgres: '9.4'
 services:
-  - postgressql
+  - postgresql
 script:
   - mix format --check-formatted --dry-run
   - mix credo --strict
