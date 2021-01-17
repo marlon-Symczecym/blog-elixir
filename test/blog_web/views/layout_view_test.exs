@@ -1,4 +1,7 @@
 defmodule BlogWeb.LayoutViewTest do
+  @moduledoc """
+  Layout View Test module
+  """
   use BlogWeb.ConnCase, async: true
 
   # When testing helpers, you may want to import Phoenix.HTML and
