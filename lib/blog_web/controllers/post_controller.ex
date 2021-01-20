@@ -6,10 +6,14 @@ defmodule BlogWeb.PostController do
 
   alias Blog.Posts.Post
 
-  def index(conn, params) do
+  def index(conn, _params) do
     posts = Blog.Repo.all(Post)
 
     render(conn, "index.html", posts: posts)
+  end
+
+  def new(conn, _params) do
+    render(conn, "new.html")
   end
 
   def show(conn, %{"id" => id}) do
