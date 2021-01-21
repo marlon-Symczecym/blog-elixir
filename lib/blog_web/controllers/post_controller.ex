@@ -17,6 +17,22 @@ defmodule BlogWeb.PostController do
     render(conn, "new.html", changeset: changeset)
   end
 
+  def create(conn, %{"post" => post}) do
+    post =
+      Post.changeset(%Post{}, post)
+      |> Blog.Repo.insert()
+
+    case post do
+      {:ok, post} ->
+        conn
+        |> put_flash(:info, "Post criado com sucesso")
+        |> redirect(to: Routes.post_path(conn, :show, post))
+
+      {:error, changeset} ->
+        render(conn, "new.html", changeset: changeset)
+    end
+  end
+
   def show(conn, %{"id" => id}) do
     post = Blog.Repo.get(Post, id)
 
