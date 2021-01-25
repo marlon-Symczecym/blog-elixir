@@ -43,7 +43,7 @@ defmodule BlogWeb.PostController do
         |> redirect(to: Routes.post_path(conn, :show, post))
 
       {:error, changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        render(conn, "edit.html", changeset: changeset)
     end
   end
 
