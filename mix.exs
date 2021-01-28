@@ -1,4 +1,7 @@
 defmodule Blog.MixProject do
+  @moduledoc """
+  Mix Project module
+  """
   use Mix.Project
 
   @github_url "github.com:marlon-Symczecym/blog-elixir.git"
