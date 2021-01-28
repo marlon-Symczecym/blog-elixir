@@ -52,7 +52,6 @@ defmodule BlogWeb.PostControllerTest do
   end
 
   describe "dependent on post created the tests below" do
-
     setup [:create_post]
 
     test "alterate a post", %{conn: conn, post: post} do
@@ -66,7 +65,9 @@ defmodule BlogWeb.PostControllerTest do
     end
 
     test "alterate a post with invalid values", %{conn: conn, post: post} do
-      conn = put(conn, Routes.post_path(conn, :update, post), post: %{title: nil, description: nil})
+      conn =
+        put(conn, Routes.post_path(conn, :update, post), post: %{title: nil, description: nil})
+
       assert html_response(conn, 200) =~ "Editar Post"
     end
 
